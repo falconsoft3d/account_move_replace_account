@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="account_move_replace_account_wizard_form_view" model="ir.ui.view">
+        <field name="name">Account Move Replace Account Wizard Form View</field>
+        <field name="model">account.move.replace.account.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Replace account on Account Moves">
+                <group>
+                    <group>
+                        <field name="from_account_id"/>
+                        <field name="to_account_id"/>
+                    </group>
+                    <group>
+                        <field name="date_start"/>
+                        <field name="date_end"/>
+                    </group>
+                </group>
+                <footer>
+                    <button string="Cancel" class="btn-default" special="cancel"/>
+                    <button name="replace_account" string="Replace" type="object" class="btn-primary"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <act_window id="account_move_replace_account_action"
+        name="Replace account on Account Moves"
+        res_model="account.move.replace.account.wizard"
+        view_mode="form"
+        view_type="form"
+        target="new"/>
+    <menuitem id="account_move_replace_account_menu"
+        name="Replace account on Account Moves"
+        parent="account.menu_finance_entries"
+        groups="account.group_account_user"
+        sequence="3"
+        action="account_move_replace_account_action"/>
+</odoo>
